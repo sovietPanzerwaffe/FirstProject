@@ -1,0 +1,20 @@
+<?php
+/**
+ *
+ *
+ * @var $this Web4Pro_News_Block_News
+ */
+?>
+
+<?php
+		$currentPage = Mage::app()->getRequest()->getParam('p');
+        $limit = Mage::app()->getRequest()->getParam('limit');
+        $collection = $this->getNewsCollection($limit, $currentPage);
+
+        foreach ($collection as $item):?>
+            <br><a href="<?php echo Mage::getUrl('news/index/view/id/'.$item->getId()); ?>"> <h2><?php echo $item->getTitle()?></h2></a>
+            <h4><?php echo $item->getAuthor()?></h4>
+            <?php echo $item->getDescription()?></br><hr>
+        <?php endforeach ;?>
+            
+<?php echo $this->getPagerHtml()?>

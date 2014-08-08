@@ -1,0 +1,17 @@
+<?php
+/**
+ *
+ *
+ * @var $this Web4Pro_News_Block_News
+ */
+?>
+<h1>Latest news</h1>
+<a href="<?php echo Mage::getUrl('news')?>">To news list <a>
+<?php
+$collection = $this->getNewsCollectionForHomePage();
+$authors = $this->getAuthorsArray();
+foreach ($collection as $item):?>
+    <br><a href="<?php echo Mage::getUrl('news/index/view/id/'.$item->getId())?>"><h2><?php echo $item->getTitle()?></h2></a>
+    <h4><?php echo $item->getAuthor()?></h4>
+	<?php echo $item->getDescription()?></br><hr>
+<?php endforeach;?>

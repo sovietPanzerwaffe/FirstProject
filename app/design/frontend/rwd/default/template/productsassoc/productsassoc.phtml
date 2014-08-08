@@ -1,0 +1,55 @@
+
+<script type="text/javascript">
+	$j('document').ready(function() {
+		$j( "#addproductsassoc" ).val("Also add to cart products:");
+});
+</script>
+<?php if($this->getItemCount()): ?>
+<h1>Add crossccell products to cart</h1>
+<div class="col-main">
+<form id="productsassocform" action="<?php echo $this->getUrl("checkout/cart/"); ?>" method="post">
+<?php echo $this->getBlockHtml('formkey') ?>
+<table cellspacing="15" border="0">
+    <?php foreach($this->getItems() as $_item): ?>
+		<tr>
+			<td>
+            <a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(210); ?>" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
+            </a>
+            </td>
+            </br>
+            <td  width="100" align="center">
+				<input id="<?php echo $_item->getName()?>" type="checkbox" name="productsassoc[]" value="<?php echo $_item->getId()?>"  onclick="updateProducts()" class="productassoccheckbox"/>
+                <?php echo $_item->getName()?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+</br>
+    <input id="addproductsassoc" type="submit"  class="button btn-cart"/>
+</form>
+<?php endif; ?>
+
+<script type="text/javascript">
+function updateProducts(){
+	var checkboxes = $j( ".productassoccheckbox" );
+	var button = $j( "#addproductsassoc" );
+	var buttonText = $j( ".productassoccheckbox" ).text();
+
+	var productsText = "";
+	button.text("");
+	var productsIds = "";
+	for(i=0; i< checkboxes.length; i++)
+	{
+		if(checkboxes[i].checked)
+		{
+			 productsText += " ";
+			 productsText += checkboxes[i].id;
+             console.log(checkboxes[i].id);
+			 productsText += ", ";
+		}
+	}
+	button.val("Also add to cart products:"+productsText);
+	$j("#productassocids" ).val("");
+}
+</script>

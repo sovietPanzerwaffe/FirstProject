@@ -1,0 +1,22 @@
+<?php
+/**
+ *
+ *
+ * @var $this Web4Pro_News_Block_News
+ */
+?>
+
+<?php
+		$id = Mage::app()->getRequest()->getParam('id');
+        $news = $this->getItem($id);
+        $authors = $this->getAuthorsArray();
+?>	
+        <br><a href="<?php echo Mage::getUrl('*/*');?>"</a>To News List</a></br>
+        <h2><?php echo $news->getTitle()?></h2>
+        <?php if(array_key_exists($news->getAuthor(), $authors)):?>
+        <h4> <?php echo $authors[$news->getAuthor()]; ?></h4>
+        <?php endif ?>
+		<br><?php echo $news->getMain();?> </br>
+		<hr>
+
+

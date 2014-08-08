@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+	<config>
+        <modules>
+            <Web4Pro_CustomPayment>
+                <active>true</active>
+                <codePool>local</codePool>
+                <depends>
+                    <Mage_Payment/>
+                    <Mage_Customer/>
+					<Mage_Adminhtml/>
+                </depends>
+            </Web4Pro_CustomPayment>
+        </modules>
+    </config>

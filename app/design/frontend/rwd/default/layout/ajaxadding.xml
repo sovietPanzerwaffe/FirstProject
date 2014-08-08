@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout>
+    <catalog_category_default translate="label">
+        <label>Catalog Category (Non-Anchor)</label>
+        <reference name="product_list">
+			<action method='setTemplate'><template>web4pro/ajaxadding/ajaxadding.phtml</template></action>
+        </reference>
+    </catalog_category_default>
+    
+    <default>
+        <reference name="header">
+			<block type="ajaxadding/cart_minicart" name="minicart_head" template="web4pro/ajaxadding/minicart.phtml" before="-">
+			        <block type="ajaxadding/cart_sidebar" name="minicart_content" template="web4pro/ajaxadding/minicart/items.phtml">
+                    <action method="addItemRender"><type>default</type><block>ajaxadding/cart_item_renderer</block><template>web4pro/ajaxadding/minicart/default.phtml</template></action>
+                    <action method="addItemRender"><type>simple</type><block>ajaxadding/cart_item_renderer</block><template>web4pro/ajaxadding/minicart/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>ajaxadding/cart_item_renderer_grouped</block><template>web4pro/ajaxadding/minicart/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>ajaxadding/cart_item_renderer_configurable</block><template>web4pro/ajaxadding/minicart/default.phtml</template></action>
+                    <block type="core/text_list" name="cart_sidebar.cart_promotion" as="cart_promotion" translate="label" module="checkout">
+                        <label>Mini-cart promotion block</label>
+                    </block>
+                    <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                        <label>Shopping Cart Sidebar Extra Actions</label>
+                    </block>
+                </block>
+            </block>
+        </reference>
+	</default>
+   </layout>

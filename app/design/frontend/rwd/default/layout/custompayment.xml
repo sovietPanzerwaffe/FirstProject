@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<reference name="header">
+		<block type="Web4Pro/CustomPayment" name="capital" template="web4pro/custompayment/capital.phtml"/>
+	</reference>
+</layout>

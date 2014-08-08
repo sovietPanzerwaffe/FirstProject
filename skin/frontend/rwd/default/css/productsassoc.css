@@ -1,0 +1,23 @@
+
+
+.div-table{
+  display:table;         
+  width:auto;               
+  border-spacing:5px;
+}
+li{
+list-style-type: none;
+}
+.div-table-row{
+  width:100px; 
+  max-height: 100 px;
+}
+.div-table-col{
+  float:left;
+  display:table-column;              
+
+}
+.idsinput{
+  display:none;
+}
+
